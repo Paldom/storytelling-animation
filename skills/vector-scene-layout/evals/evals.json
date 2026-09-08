@@ -1,0 +1,54 @@
+{
+  "skill": "vector-scene-layout",
+  "cases": [
+    { "type": "should_trigger", "prompt": "lay out the scenes from storyboard.json as Remotion components" },
+    { "type": "should_trigger", "prompt": "set up the Remotion project for this animation and build the static scenes" },
+    { "type": "should_trigger", "prompt": "design the frames for each beat: headline, icon, background, keep text readable on a phone" },
+    { "type": "should_trigger", "prompt": "what font size and safe margins should I use for a 1080x1350 LinkedIn video?" },
+    { "type": "should_trigger", "prompt": "compose the scene: two app windows left and right with a connector, brand colours" },
+    { "type": "should_trigger", "prompt": "the text is too small in the vertical version, fix the layout for 9:16" },
+    { "type": "should_trigger", "prompt": "generate design tokens (type scale, safe area, stroke) for a 1920x1080 slide animation" },
+    { "type": "should_trigger", "prompt": "build the still frames of the video before we animate anything" },
+    { "type": "should_trigger", "prompt": "scene layouts pls, storyboard is done" },
+    { "type": "should_trigger", "prompt": "is this colour combo readable for on-screen text in the video? check contrast" },
+    { "type": "should_not_trigger", "prompt": "write the storyboard beats for the explainer" },
+    { "type": "should_not_trigger", "prompt": "animate the headline sliding in with a spring" },
+    { "type": "should_not_trigger", "prompt": "render the composition to mp4 for linkedin" },
+    { "type": "should_not_trigger", "prompt": "which icon pack is licensed for commercial video" },
+    { "type": "should_not_trigger", "prompt": "review the rendered mp4 for legibility on mobile" },
+    { "type": "should_not_trigger", "prompt": "lay out the landing page hero section in Tailwind" },
+    { "type": "should_not_trigger", "prompt": "design a PowerPoint slide template with our brand colours" },
+    { "type": "should_not_trigger", "prompt": "fix the flicker in my Remotion render" },
+    { "type": "should_not_trigger", "prompt": "make a responsive CSS grid layout for the dashboard" },
+    { "type": "should_not_trigger", "prompt": "what are the LinkedIn video file size limits" },
+    {
+      "type": "quality",
+      "prompt": "Here is a validated storyboard.json (5 beats, targets linkedin-4x5 and pptx-16x9). Set up the project and build the static scenes.",
+      "expected_behavior": [
+        "scaffolds a Remotion project with the pinned create-video version, installs the official Remotion skills, and records the Remotion license basis in animation.config.json",
+        "generates tokens with the bundled script for each target (width, height, safe insets, type scale, stroke) and reads them in the scenes instead of hard-coding pixels",
+        "creates one static scene component per beat with the beat's text at or above the body/headline minimums and inside the safe area",
+        "registers one composition per target whose duration comes from the storyboard, then renders a still per beat and looks at them",
+        "does not add any motion yet"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The 9:16 version cuts off the CTA text at the bottom and the icons look thin. Fix the layout.",
+      "expected_behavior": [
+        "moves essential text out of the bottom safe zone for vertical (large bottom inset for platform UI) and keeps it inside the central 4:5 region",
+        "raises stroke width to the token minimum for the target height",
+        "re-renders the stills at phone scale and confirms visually"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Use our brand colours: text #7A7A7A on background #F2F2F2, accent #FF3B30 for headlines.",
+      "expected_behavior": [
+        "computes the contrast ratios with the bundled script and reports that #7A7A7A on #F2F2F2 (3.83:1) and #FF3B30 on #F2F2F2 (3.17:1) both fail 4.5:1 for body text and only pass the 3:1 large-text threshold",
+        "proposes the nearest compliant values (darker text, or light-on-dark) and warns that thin saturated red text fringes after chroma subsampling",
+        "keeps the accent for shapes and large headlines with weight 600 or more, not for body text"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "file": "icons/clock.svg",
+      "pack": "own",
+      "source": "own:project",
+      "license": "Own-Work"
+    },
+    {
+      "file": "icons/connector.svg",
+      "pack": "own",
+      "source": "own:project",
+      "license": "Own-Work"
+    },
+    {
+      "file": "lottie/pulse.json",
+      "pack": "own",
+      "source": "own:project",
+      "license": "Own-Work"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Inter",
+      "source": "https://fonts.google.com/specimen/Inter",
+      "license": "OFL-1.1"
+    }
+  ]
+}

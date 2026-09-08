@@ -1,0 +1,43 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Brief to finished video",
+      "description": "Hand over a brief and get a smooth, phone-legible vector animation delivered for LinkedIn, PowerPoint or any size, with a gate after every step.",
+      "skills": [
+        "storytelling-animation"
+      ]
+    },
+    {
+      "title": "Story to storyboard",
+      "description": "Turn a brief into beats that a muted phone feed can actually read, with the timing math done for you.",
+      "skills": [
+        "animation-storyboard"
+      ]
+    },
+    {
+      "title": "Assets and scenes",
+      "description": "Source icons and illustrations you are actually allowed to ship, then lay them out so they stay legible on a phone.",
+      "skills": [
+        "vector-asset-sourcing",
+        "vector-scene-layout"
+      ]
+    },
+    {
+      "title": "Motion that stays smooth",
+      "description": "Choreograph entrances, holds, transitions and seamless loops from the frame, with a linter that catches the flicker before you render.",
+      "skills": [
+        "smooth-motion-choreography"
+      ]
+    },
+    {
+      "title": "Deliver anywhere",
+      "description": "Render to LinkedIn, PowerPoint, GIF or any resolution with presets traced to the platforms' own specs, and prove each file before you send it.",
+      "skills": [
+        "animation-export-presets",
+        "animation-frame-qa"
+      ]
+    }
+  ]
+}

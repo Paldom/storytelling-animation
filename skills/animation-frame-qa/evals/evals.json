@@ -1,0 +1,53 @@
+{
+  "skill": "animation-frame-qa",
+  "cases": [
+    { "type": "should_trigger", "prompt": "review the rendered video before I post it, is the text readable on a phone?" },
+    { "type": "should_trigger", "prompt": "QA the mp4: contact sheet, first and last frame, anything flashing" },
+    { "type": "should_trigger", "prompt": "check the loop seam in the exported gif" },
+    { "type": "should_trigger", "prompt": "does the CTA sit inside the safe area in the final render?" },
+    { "type": "should_trigger", "prompt": "proof the linkedin video at feed size before delivery" },
+    { "type": "should_trigger", "prompt": "make a contact sheet of the render so I can review the pacing" },
+    { "type": "should_trigger", "prompt": "something strobes in the middle of the video, find which frames" },
+    { "type": "should_trigger", "prompt": "final check on out/linkedin-4x5.mp4 pls" },
+    { "type": "should_trigger", "prompt": "is frame 0 a good thumbnail for this render?" },
+    { "type": "should_trigger", "prompt": "sign off the exported animation, what do I need to look at" },
+    { "type": "should_not_trigger", "prompt": "render the animation to mp4 for linkedin" },
+    { "type": "should_not_trigger", "prompt": "animate the scenes and smooth the transitions" },
+    { "type": "should_not_trigger", "prompt": "lay out the scenes with bigger text" },
+    { "type": "should_not_trigger", "prompt": "storyboard the beats for the explainer" },
+    { "type": "should_not_trigger", "prompt": "which icon pack is licensed for the video" },
+    { "type": "should_not_trigger", "prompt": "review my pull request for bugs" },
+    { "type": "should_not_trigger", "prompt": "check the contrast of these two brand colours for the scene" },
+    { "type": "should_not_trigger", "prompt": "QA the landing page for accessibility" },
+    { "type": "should_not_trigger", "prompt": "extract all frames of this video as pngs for machine learning" },
+    { "type": "should_not_trigger", "prompt": "write a review of this animated short film" },
+    {
+      "type": "quality",
+      "prompt": "Here is out/linkedin-4x5.mp4. Review it before we deliver.",
+      "expected_behavior": [
+        "runs the bundled QA script to produce a bounded contact sheet, phone-width first/mid/last stills, a safe-zone overlay and a luminance-jump report",
+        "opens and looks at the images rather than trusting the script, and checks each item of the review checklist (poster frame, text inside safe area, readable at phone width, nothing under the bottom band, CTA still, no strobing)",
+        "reports pass, fail or manual-required per check with frame numbers for anything to fix, and routes fixes to the right skill (layout, motion, export)",
+        "does not declare the video done if any check is failed or unverified"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The 8 s loop gif for the deck: check the seam and the flicker someone noticed.",
+      "expected_behavior": [
+        "renders the wrap strip (last frames followed by first frames) and inspects continuity of pose",
+        "reads the luminance-jump report and distinguishes intended cuts from flashes, reporting the frames",
+        "recommends the motion skill for a seam or flicker fix, not a re-encode"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Client says the text looks tiny on their phone. Verify.",
+      "expected_behavior": [
+        "renders stills at 390 px wide and judges legibility at that size rather than at full resolution",
+        "measures or estimates the smallest text height against the token minimum for the target and reports it",
+        "if too small, sends the fix to the layout skill with the specific beats"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "skill": "smooth-motion-choreography",
+  "cases": [
+    { "type": "should_trigger", "prompt": "animate the scenes: text slides up, icons pop in one after another" },
+    { "type": "should_trigger", "prompt": "make the motion smoother, it feels jerky and mechanical" },
+    { "type": "should_trigger", "prompt": "the render flickers between frames, fix the animation code" },
+    { "type": "should_trigger", "prompt": "add transitions between the beats and a small settle on the checkmarks" },
+    { "type": "should_trigger", "prompt": "choreograph the connector line drawing on and the rows flowing along it" },
+    { "type": "should_trigger", "prompt": "this pan strobes at 30fps, how do I make it smooth" },
+    { "type": "should_trigger", "prompt": "spring presets for a headline entrance in remotion?" },
+    { "type": "should_trigger", "prompt": "make it loop seamlessly, the seam jumps" },
+    { "type": "should_trigger", "prompt": "ease the icon in with a bit of overshoot, not too bouncy" },
+    { "type": "should_trigger", "prompt": "the stagger reads as one pop, fix the timing" },
+    { "type": "should_not_trigger", "prompt": "write the storyboard beats for the explainer" },
+    { "type": "should_not_trigger", "prompt": "lay out the scene, the headline is too small on the phone" },
+    { "type": "should_not_trigger", "prompt": "render the animation to mp4 for linkedin" },
+    { "type": "should_not_trigger", "prompt": "which icon pack is licensed for the video" },
+    { "type": "should_not_trigger", "prompt": "review the rendered video for legibility" },
+    { "type": "should_not_trigger", "prompt": "add a hover animation to the button in my React app" },
+    { "type": "should_not_trigger", "prompt": "animate this bar chart in matplotlib" },
+    { "type": "should_not_trigger", "prompt": "why does my CSS transition not run in Safari" },
+    { "type": "should_not_trigger", "prompt": "set up the Remotion project and tokens" },
+    { "type": "should_not_trigger", "prompt": "convert the finished mp4 to a gif for the slide" },
+    {
+      "type": "quality",
+      "prompt": "The static scenes are done for a 5-beat LinkedIn explainer. Animate them according to the storyboard's motion intents.",
+      "expected_behavior": [
+        "drives every animation from useCurrentFrame() and the fps from useVideoConfig(), with springs or the easing tokens from the reference and clamped interpolations",
+        "keeps each text card still for its readable window (enters within 0.4 s, exits in the last 0.3 s) and animates only transform and opacity",
+        "uses staggers of 2-3 frames for grouped elements and the storyboard's transitions via TransitionSeries",
+        "runs the bundled motion linter and it reports no findings, then renders and looks at frames around each transition"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The 8-second loop for the PowerPoint slide has a visible jump at the seam.",
+      "expected_behavior": [
+        "implements the wrap as a cross-fade from the last beat into a copy of the hook, with the series offset by the wrap overlap so frame N equals frame 0",
+        "checks that the hook's entrance is complete before the visible part of the loop starts",
+        "renders a wrap strip (last frames followed by first frames) and inspects it"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The background elements strobe when the camera pans across the diagram.",
+      "expected_behavior": [
+        "slows the pan so a full frame width takes several seconds or shortens the travel, citing the judder rule",
+        "adds camera motion blur only if the pan must stay fast, noting the render-time cost",
+        "keeps text static or fades it out during the pan"
+      ]
+    }
+  ]
+}

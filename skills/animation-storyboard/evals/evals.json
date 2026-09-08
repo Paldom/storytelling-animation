@@ -1,0 +1,64 @@
+{
+  "skill": "animation-storyboard",
+  "cases": [
+    { "type": "should_trigger", "prompt": "storyboard this message for a 30 second LinkedIn animation: 'onboarding takes 5 minutes, not 5 days'" },
+    { "type": "should_trigger", "prompt": "write the beats and on-screen text for an animated explainer about our new API" },
+    { "type": "should_trigger", "prompt": "turn this brief into a storyboard.json I can validate" },
+    { "type": "should_trigger", "prompt": "plan the script and scene list for a short vector animation that opens our PowerPoint deck" },
+    { "type": "should_trigger", "prompt": "i need a storybord for a 20s product story, silent, text on screen" },
+    { "type": "should_trigger", "prompt": "outline hook, beats and CTA for a linkedin video about remote onboarding" },
+    { "type": "should_trigger", "prompt": "break this paragraph into animation beats with timing per beat" },
+    { "type": "should_trigger", "prompt": "how long should each scene be in my 45s animated story? make me a beat sheet" },
+    { "type": "should_trigger", "prompt": "draft the storyboard for a looping 8 second animated intro, no voice-over" },
+    { "type": "should_trigger", "prompt": "validate my storyboard json, the timing feels rushed" },
+    { "type": "should_not_trigger", "prompt": "storyboard the walkthrough video of our web app for the README" },
+    { "type": "should_not_trigger", "prompt": "animate the scenes in my storyboard so they feel smoother" },
+    { "type": "should_not_trigger", "prompt": "render my storyboard to mp4 for linkedin" },
+    { "type": "should_not_trigger", "prompt": "which icon pack can I use for the scenes in this storyboard?" },
+    { "type": "should_not_trigger", "prompt": "lay out the scenes from storyboard.json as Remotion components" },
+    { "type": "should_not_trigger", "prompt": "write a LinkedIn post announcing our product launch" },
+    { "type": "should_not_trigger", "prompt": "write a voice-over script for a two minute narrated explainer" },
+    { "type": "should_not_trigger", "prompt": "generate storyboard sketch panels with an image model" },
+    { "type": "should_not_trigger", "prompt": "check whether the text in my rendered video is readable on a phone" },
+    { "type": "should_not_trigger", "prompt": "produce the whole animated explainer from this brief, end to end" },
+    {
+      "type": "quality",
+      "prompt": "Storyboard a 30 second LinkedIn feed animation from this brief: 'Teams waste hours copying data between tools. Our connector syncs it in one click. CTA: try it free.'",
+      "expected_behavior": [
+        "writes storyboard.json with version 1, fps 30, a linkedin target, and beats that carry id, duration_s, text, visual, motion and transition",
+        "first beat is the hook with on-screen text and no beat has more than 8 words",
+        "every text beat is long enough to read (at least 1.3 s and 0.35 s per word after enter, exit and overlaps)",
+        "runs the bundled validator and reports total duration, which stays within the LinkedIn feed budget",
+        "ends with a CTA beat that holds still"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Make a storyboard for an 8 second seamless loop that plays on a PowerPoint title slide: 'Quarterly review - Q3 2026'. No voice-over.",
+      "expected_behavior": [
+        "sets loop to true and the pptx target",
+        "keeps the last beat's exit compatible with the first beat's entrance so the wrap is seamless",
+        "keeps text to a single short card that holds long enough to read",
+        "validator passes with the total duration equal to 8 seconds"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "My storyboard.json fails validation: 'beat b3 readable hold 0.9s < required 2.1s'. Fix it without making the video longer than 30 s.",
+      "expected_behavior": [
+        "explains that hold = duration minus enter, exit and transition overlaps must cover 0.35 s per word",
+        "shortens the text or rebalances durations between beats rather than blindly extending the total",
+        "re-runs the validator and shows it passing"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Turn this 400-word blog post into beats for a short silent animation for LinkedIn.",
+      "expected_behavior": [
+        "reduces the post to one governing idea and 4-8 beats rather than transcribing paragraphs",
+        "uses on-screen text cards of at most 8 words each, not subtitle-length sentences",
+        "states the target length and why (LinkedIn recommended length), and flags anything from the post it dropped"
+      ]
+    }
+  ]
+}

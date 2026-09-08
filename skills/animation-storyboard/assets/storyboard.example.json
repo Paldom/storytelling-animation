@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "title": "One-click sync",
+  "fps": 30,
+  "targets": ["linkedin-4x5", "pptx-16x9"],
+  "loop": false,
+  "brand": {
+    "background": "#0B1020",
+    "text": "#F5F7FF",
+    "accent": "#4F8CFF",
+    "font": "Inter"
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "duration_s": 3.5,
+      "text": "Copying data between tools?",
+      "visual": "Two app windows; a hand-cursor drags rows back and forth, rows pile up",
+      "motion": "rows slide in one by one, faster each time, then jam",
+      "transition": { "type": "cut", "overlap_s": 0 }
+    },
+    {
+      "id": "cost",
+      "role": "body",
+      "duration_s": 4,
+      "text": "Hours lost every week",
+      "visual": "Clock icon; the minute hand sweeps, small calendar squares fill grey",
+      "motion": "clock hand sweeps once, calendar squares stagger-fill",
+      "transition": { "type": "fade", "overlap_s": 0.4 }
+    },
+    {
+      "id": "shift",
+      "role": "body",
+      "duration_s": 4,
+      "text": "One connector. One click.",
+      "visual": "The two windows join with a single bold line; accent colour appears for the first time",
+      "motion": "windows drift together, line draws on, accent fills the connector",
+      "transition": { "type": "morph", "overlap_s": 0.5 }
+    },
+    {
+      "id": "outcome",
+      "role": "body",
+      "duration_s": 4.5,
+      "text": "Data synced. Team unblocked.",
+      "visual": "Rows flow along the connector; checkmarks land on both windows",
+      "motion": "rows travel the path at constant speed; checkmarks pop with a small settle",
+      "transition": { "type": "fade", "overlap_s": 0.4 }
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "duration_s": 3.5,
+      "text": "Try it free at example.com",
+      "visual": "Logo lock-up on the brand background, URL below, everything still",
+      "motion": "fade in, then hold with no movement",
+      "transition": { "type": "none", "overlap_s": 0 }
+    }
+  ]
+}

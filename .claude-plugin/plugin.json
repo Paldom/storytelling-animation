@@ -1,0 +1,11 @@
+{
+  "name": "storytelling-animation",
+  "description": "Agent Skills for creating smooth vector storytelling animation videos - script, storyboard, motion design and rendering at any resolution for LinkedIn posts, PowerPoint slides and other formats.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Paldom",
+    "url": "https://github.com/Paldom"
+  },
+  "homepage": "https://github.com/Paldom/storytelling-animation",
+  "license": "MIT"
+}

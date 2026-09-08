@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>storytelling-animation: beat sheet</title>
+  <path id="bg" d="M 601.62 0 c 147.85 0 221.77 0 278.24 28.77 a 263.99 263.99 0 0 1 115.37 115.37 c 28.77 56.47 28.77 130.39 28.77 278.24 L 1024 601.62 c 0 147.85 0 221.77 -28.77 278.24 a 263.99 263.99 0 0 1 -115.37 115.37 c -56.47 28.77 -130.39 28.77 -278.24 28.77 L 422.38 1024 c -147.85 0 -221.77 0 -278.24 -28.77 a 263.99 263.99 0 0 1 -115.37 -115.37 c -28.77 -56.47 -28.77 -130.39 -28.77 -278.24 L 0 422.38 c 0 -147.85 0 -221.77 28.77 -278.24 a 263.99 263.99 0 0 1 115.37 -115.37 c 56.47 -28.77 130.39 -28.77 278.24 -28.77 Z" fill="#2A2A2E"/>
+  <!-- Three story beats climbing a diagonal; the last beat lands (accent).
+       Axis: none (the diagonal is the idea). Gestalt: continuity. -->
+  <g id="glyph" fill="#E8E8EA">
+    <rect x="176" y="640" width="208" height="208" rx="40"/>
+    <rect x="408" y="408" width="208" height="208" rx="40"/>
+    <rect x="640" y="176" width="208" height="208" rx="40" fill="#4F8CFF"/>
+  </g>
+</svg>

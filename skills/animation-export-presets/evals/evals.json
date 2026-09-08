@@ -1,0 +1,121 @@
+{
+  "skill": "animation-export-presets",
+  "cases": [
+    {
+      "type": "should_trigger",
+      "prompt": "render the animation as an mp4 for LinkedIn"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "export this Remotion composition for a PowerPoint slide"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "make a gif version of the loop for the README and the deck"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "I need the video at 1440x1440 and also 4K for the conference screen"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "what encoding settings should I use so LinkedIn doesn't wreck the quality"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "render all targets from the storyboard and check the files"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "the mp4 won't play in powerpoint on windows, re-encode it"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "export the vertical 9:16 cut at 30fps with faststart"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "ffprobe says yuv444p, fix the render for linkedin"
+    },
+    {
+      "type": "should_trigger",
+      "prompt": "render presets pls, linkedin + ppt"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "animate the scenes so they feel smoother"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "storyboard the beats for a LinkedIn video"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "review the rendered video for readability on a phone"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "lay out the scenes and pick font sizes"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "which icon pack can we use in the video"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "compress my screen recording for email"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "convert this PowerPoint deck to PDF"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "upload the video to LinkedIn and write the post"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "set up ffmpeg on my machine"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "extract audio from this mp4"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "how do I set concurrency for npx remotion render"
+    },
+    {
+      "type": "should_not_trigger",
+      "prompt": "remotion render crashes with a timeout, debug it"
+    },
+    {
+      "type": "quality",
+      "prompt": "Render the finished animation for LinkedIn (4:5) and for a PowerPoint slide, and make sure the files are right.",
+      "expected_behavior": [
+        "refuses to render until animation.config.json records the Remotion license basis",
+        "renders one master per target composition with the bundled script and produces derivatives from the presets file (linkedin-4x5 H.264 High yuv420p 30 fps faststart bt709; pptx-16x9 H.264/AAC-free MP4 with baked background)",
+        "runs the output checker: codec, pixel format, even dimensions, fps, duration within the preset's bounds, faststart atom order, colour tags, decode check, file size cap",
+        "reports the file paths and which preset each satisfies, and notes that PowerPoint should not Compress Media"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "We also need a GIF of the 8 second loop for the README.",
+      "expected_behavior": [
+        "uses the gif-loop preset: 15 fps, at most 800 px wide, two-pass palettegen/paletteuse with diff stats and bayer dithering, infinite loop",
+        "warns that an animated GIF posts as a static image on LinkedIn and is for README, email or PowerPoint desktop only",
+        "checks the GIF's size against the preset cap and reports it"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The client wants 1440x1440 at 25 fps for a kiosk screen.",
+      "expected_behavior": [
+        "uses the custom preset with explicit even width and height and the fps from the storyboard, refusing odd dimensions",
+        "re-generates tokens for the custom size if the composition does not exist yet rather than upscaling a 1080 render",
+        "runs the checker against the custom profile and reports the result"
+      ]
+    }
+  ]
+}

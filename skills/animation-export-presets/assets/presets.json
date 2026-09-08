@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "checked": "2026-09-08",
+  "master": {
+    "note": "Remotion renders one near-lossless H.264 master per composition; every deliverable is one ffmpeg pass from it.",
+    "remotion_flags": [
+      "--codec=h264",
+      "--crf=10",
+      "--pixel-format=yuv420p",
+      "--color-space=bt709",
+      "--image-format=png",
+      "--x264-preset=slow"
+    ]
+  },
+  "presets": {
+    "linkedin-4x5": {
+      "composition": "linkedin-4x5",
+      "width": 1080,
+      "height": 1350,
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 18,
+      "x264_tune": null,
+      "gop": 60,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 3,
+      "max_s": 900,
+      "max_bytes": 5368709120,
+      "recommended_max_s": 60,
+      "sources": [
+        "https://www.linkedin.com/help/linkedin/answer/a548372",
+        "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      ],
+      "why": "Feed default. Organic accepts 256x144..4096x2304, 10-60 fps, 3 s (desktop) to 15 min, 75 KB..5 GB; ads recommend 30 fps and 4:5 at 1080x1350. Personal-profile organic limits; Company Pages cap at 10 min.",
+      "min_bytes": 76800,
+      "fps_range": [
+        10,
+        60
+      ],
+      "bitrate_range_kbps": [
+        192,
+        30000
+      ]
+    },
+    "linkedin-1x1": {
+      "composition": "linkedin-1x1",
+      "width": 1080,
+      "height": 1080,
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 18,
+      "x264_tune": null,
+      "gop": 60,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 3,
+      "max_s": 900,
+      "max_bytes": 5368709120,
+      "recommended_max_s": 60,
+      "sources": [
+        "https://www.linkedin.com/help/linkedin/answer/a548372"
+      ],
+      "why": "Square feed post. Personal-profile organic limits; Company Pages cap at 10 min.",
+      "min_bytes": 76800,
+      "fps_range": [
+        10,
+        60
+      ],
+      "bitrate_range_kbps": [
+        192,
+        30000
+      ]
+    },
+    "linkedin-9x16": {
+      "composition": "linkedin-9x16",
+      "width": 1080,
+      "height": 1920,
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 18,
+      "x264_tune": null,
+      "gop": 60,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 3,
+      "max_s": 900,
+      "max_bytes": 5368709120,
+      "recommended_max_s": 60,
+      "sources": [
+        "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      ],
+      "why": "Vertical; ads cap 9:16 at 1080x1920. Personal-profile organic limits; Company Pages cap at 10 min.",
+      "min_bytes": 76800,
+      "fps_range": [
+        10,
+        60
+      ],
+      "bitrate_range_kbps": [
+        192,
+        30000
+      ]
+    },
+    "linkedin-16x9": {
+      "composition": "linkedin-16x9",
+      "width": 1920,
+      "height": 1080,
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 18,
+      "x264_tune": null,
+      "gop": 60,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 3,
+      "max_s": 900,
+      "max_bytes": 5368709120,
+      "recommended_max_s": 60,
+      "sources": [
+        "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      ],
+      "why": "Landscape; ads cap 16:9 at 1920x1080. Personal-profile organic limits; Company Pages cap at 10 min.",
+      "min_bytes": 76800,
+      "fps_range": [
+        10,
+        60
+      ],
+      "bitrate_range_kbps": [
+        192,
+        30000
+      ]
+    },
+    "pptx-16x9": {
+      "composition": "pptx-16x9",
+      "width": 1920,
+      "height": 1080,
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 16,
+      "x264_tune": "animation",
+      "gop": 30,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 1,
+      "max_s": 3600,
+      "max_bytes": 268435456,
+      "recommended_max_s": 120,
+      "sources": [
+        "https://support.microsoft.com/en-us/office/video-and-audio-file-formats-supported-in-powerpoint-d8b12450-26db-4c7b-a5c1-593d3418fb59",
+        "https://support.microsoft.com/en-us/office/insert-and-play-a-video-file-from-your-computer-f3fcbd3e-5f86-4320-8aea-31bff480ed02"
+      ],
+      "why": "PowerPoint recommends .mp4 with H.264 video and AAC audio on Windows and Mac; the web app inserts files up to 256 MB. Short GOP keeps scrubbing/trim accurate. Background is baked in (no alpha video)."
+    },
+    "pptx-4k": {
+      "composition": "pptx-16x9",
+      "scale": 2,
+      "width": 3840,
+      "height": 2160,
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 16,
+      "x264_tune": "animation",
+      "gop": 30,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 1,
+      "max_s": 3600,
+      "max_bytes": 268435456,
+      "recommended_max_s": 120,
+      "sources": [
+        "https://www.remotion.dev/docs/scaling"
+      ],
+      "why": "Same composition rendered with --scale 2 for 4K rooms; PowerPoint upscaling is soft."
+    },
+    "gif-loop": {
+      "composition": "gif-loop",
+      "width": 800,
+      "height": 800,
+      "container": "gif",
+      "video_codec": "gif",
+      "fps": 15,
+      "max_width": 800,
+      "palette": {
+        "stats_mode": "diff",
+        "dither": "bayer",
+        "bayer_scale": 5,
+        "max_colors": 256
+      },
+      "loop": 0,
+      "min_s": 1,
+      "max_s": 15,
+      "max_bytes": 8388608,
+      "sources": [
+        "https://ffmpeg.org/ffmpeg-filters.html#palettegen",
+        "https://ffmpeg.org/ffmpeg-filters.html#paletteuse",
+        "https://www.linkedin.com/help/linkedin/answer/a554001",
+        "https://support.microsoft.com/en-us/office/add-an-animated-gif-to-a-slide-3a04f755-25a9-42c4-8cc1-1da4148aef01"
+      ],
+      "why": "README, email, PowerPoint desktop. LinkedIn's video platform does not accommodate animated GIFs (a554001); PowerPoint for the web cannot play them. Two-pass palette, 256 colours, 15 fps, infinite loop, <= 8 MB policy."
+    },
+    "custom": {
+      "composition": "custom",
+      "container": "mp4",
+      "video_codec": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "crf": 18,
+      "x264_tune": null,
+      "gop": 60,
+      "audio": "none",
+      "faststart": true,
+      "color": "bt709",
+      "range": "tv",
+      "min_s": 1,
+      "max_s": 3600,
+      "max_bytes": 5368709120,
+      "sources": [],
+      "why": "Any even width x height at the storyboard fps; the checker reads custom_size and fps from the project's storyboard.json. Portrait sizes with height/width > 2.4 are outside LinkedIn's aspect range."
+    }
+  }
+}

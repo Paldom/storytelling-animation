@@ -1,0 +1,53 @@
+{
+  "skill": "storytelling-animation",
+  "cases": [
+    { "type": "should_trigger", "prompt": "make me an animated explainer for LinkedIn from this brief: our connector syncs data between tools in one click" },
+    { "type": "should_trigger", "prompt": "produce a short vector animation video that tells this story, end to end, for a PowerPoint intro" },
+    { "type": "should_trigger", "prompt": "I have a message and a brand palette; create the whole animation and give me the mp4" },
+    { "type": "should_trigger", "prompt": "turn this paragraph into a 30 second animated story for our company page" },
+    { "type": "should_trigger", "prompt": "build a looping animated intro for the quarterly deck, start to finish" },
+    { "type": "should_trigger", "prompt": "animated linkedin post from brief pls, 4:5 and 9:16" },
+    { "type": "should_trigger", "prompt": "create a storytelling animation from scratch for this product launch" },
+    { "type": "should_trigger", "prompt": "we need a motion graphics explainer video, vector style, delivered for LinkedIn and the sales deck" },
+    { "type": "should_trigger", "prompt": "run the full animation pipeline on brief.md" },
+    { "type": "should_trigger", "prompt": "can you make a smooth animated video from this script and export it at 1440x1440?" },
+    { "type": "should_not_trigger", "prompt": "just write the storyboard beats for the explainer, nothing else" },
+    { "type": "should_not_trigger", "prompt": "only export the existing animation to gif" },
+    { "type": "should_not_trigger", "prompt": "review the rendered mp4 for legibility" },
+    { "type": "should_not_trigger", "prompt": "animate the scenes I already laid out" },
+    { "type": "should_not_trigger", "prompt": "which icon pack is licensed for video" },
+    { "type": "should_not_trigger", "prompt": "write a LinkedIn post announcing our launch" },
+    { "type": "should_not_trigger", "prompt": "record a walkthrough video of our web app" },
+    { "type": "should_not_trigger", "prompt": "generate a talking-head AI video with voice-over" },
+    { "type": "should_not_trigger", "prompt": "make a PowerPoint deck about our quarterly results" },
+    { "type": "should_not_trigger", "prompt": "edit this screen recording into a short clip" },
+    {
+      "type": "quality",
+      "prompt": "Brief: 'Teams waste hours copying data between tools. Our connector syncs it in one click. CTA: try it free at example.com.' Brand: dark navy background, off-white text, blue accent, Inter. Deliver for LinkedIn 4:5 and a PowerPoint slide.",
+      "expected_behavior": [
+        "runs the pipeline in order: storyboard, assets, layout, motion, export, QA, invoking each sibling skill's workflow and scripts rather than improvising",
+        "stops at each gate until it passes: storyboard validator exit 0, assets manifest check, per-beat stills viewed, motion lint clean, export checker pass per preset, QA checklist with no fail",
+        "records the Remotion license basis before rendering and states it in the summary",
+        "delivers out/linkedin-4x5.mp4 and out/pptx-16x9.mp4 with the QA verdicts, the attribution note if any, and the remaining manual steps (test upload, presenter machine)"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Same brief, but the client now wants it as an 8 second seamless loop for the deck only.",
+      "expected_behavior": [
+        "re-runs the storyboard step with loop true and exact_duration_s, not a hand-edit of the scenes",
+        "carries the change through layout, motion (loop wrap) and export, re-running every downstream gate",
+        "checks the seam in QA with the wrap strip before delivering"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The QA step says the CTA text sits under the bottom band on the 9:16 version.",
+      "expected_behavior": [
+        "routes the fix to the layout step for the 9:16 target rather than patching the export",
+        "re-renders stills, then motion frames, then the export, then re-runs QA for that target only",
+        "does not report done until the QA item passes"
+      ]
+    }
+  ]
+}

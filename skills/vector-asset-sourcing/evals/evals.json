@@ -1,0 +1,54 @@
+{
+  "skill": "vector-asset-sourcing",
+  "cases": [
+    { "type": "should_trigger", "prompt": "which icon pack should I use for the animation? it has to be free for commercial use" },
+    { "type": "should_trigger", "prompt": "can I use this Lordicon animated icon in a LinkedIn video without attribution?" },
+    { "type": "should_trigger", "prompt": "find clean line icons for the scenes: clock, calendar, connector, checkmark" },
+    { "type": "should_trigger", "prompt": "is unDraw ok for a client explainer video, do we need to credit them?" },
+    { "type": "should_trigger", "prompt": "add these SVG files to the project and check they are clean and consistent" },
+    { "type": "should_trigger", "prompt": "we need illustrations of people for the story, which illustration packs are licensed for video" },
+    { "type": "should_trigger", "prompt": "lucide or phosphor for this animation? stroke consistency matters" },
+    { "type": "should_trigger", "prompt": "write the assets manifest with a license per icon in public/icons" },
+    { "type": "should_trigger", "prompt": "this lottie json from lottiefiles, safe to import into the render?" },
+    { "type": "should_trigger", "prompt": "icon liscense check pls before we ship the video" },
+    { "type": "should_not_trigger", "prompt": "lay out the icons in the scene with a safe margin and a bigger headline" },
+    { "type": "should_not_trigger", "prompt": "animate the icons so they draw on one after another" },
+    { "type": "should_not_trigger", "prompt": "add animated icons to my React app's navbar on hover" },
+    { "type": "should_not_trigger", "prompt": "what font size should the headline be on a phone" },
+    { "type": "should_not_trigger", "prompt": "render the animation as a gif for the slide" },
+    { "type": "should_not_trigger", "prompt": "storyboard the beats for an icon-based explainer" },
+    { "type": "should_not_trigger", "prompt": "design an app icon for our product" },
+    { "type": "should_not_trigger", "prompt": "install lucide-react in my Next.js project" },
+    { "type": "should_not_trigger", "prompt": "review the rendered video, is the text legible" },
+    { "type": "should_not_trigger", "prompt": "convert this PNG logo to a vector SVG" },
+    {
+      "type": "quality",
+      "prompt": "Pick icons for these scenes (clock, calendar, two app windows, a connector line, checkmarks) for a LinkedIn explainer we will sell to a client. Add them to the Remotion project.",
+      "expected_behavior": [
+        "chooses one open-licensed stroke icon set (ISC or MIT such as Lucide, Tabler, Phosphor) and states the license and grid/stroke convention",
+        "copies the SVGs under public/ with pinned source versions and writes an assets manifest entry per file with source URL and license",
+        "runs the bundled asset checker and it passes (viewBox present, no script, no external references, consistent stroke width)",
+        "does not mix a second icon set for the missing shapes; draws the app windows and connector as simple rects/paths instead"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The designer wants to use a free Flaticon animated icon and a Storyset illustration in our product video. Are we allowed to?",
+      "expected_behavior": [
+        "states that both free tiers require visible attribution and explains where the credit has to appear in a video",
+        "offers an attribution-free alternative (open-licensed set) or the paid tier as the two ways out",
+        "records the decision in the manifest with attribution_required true and the exact credit line, or rejects the asset"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Here is a Lottie JSON exported from After Effects. Import it into the animation.",
+      "expected_behavior": [
+        "checks the JSON for external image references and expressions before importing and refuses or flags them",
+        "uses @remotion/lottie with the file loaded from public/ and reads its fps and duration with getLottieMetadata",
+        "notes that Lottie assets do not scale with the composition's design tokens and must be sized explicitly",
+        "adds the file to the manifest with its license"
+      ]
+    }
+  ]
+}
